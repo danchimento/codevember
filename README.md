@@ -8,10 +8,10 @@ Codevember is about getting better at software development and the best way to g
 
 2. Every build must be finished within a day. Run out of time? Too bad. Move on and try again tomorrow. Failure _is_ an option.
 
-3. Have fun. Don't write documentation (unless that's fun for you, weirdo). Don't make it pretty. Just make it work. Embrace the mess. You're here to get good, not get a job.
+3. Have fun. Don't write documentation (unless that's fun for you, weirdo). Don't make it pretty. Just make it work. Embrace the mess. You're here to get gud, not get a job.
 
 # Contributing (Optional)
-This repo is available if you want to keep track of your work or share your builds with the community. Totally option. Just write code okay? 
+This repo is available if you want to keep track of your work or share your builds with the community. Totally optional. Just write code okay? 
 
 And add a .gitignore for godsakes no one wants your node_modules directory cluttering the internet.
 
