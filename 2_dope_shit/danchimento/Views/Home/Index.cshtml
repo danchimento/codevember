@@ -1,0 +1,24 @@
+﻿@model List<DopeShitVm>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Dope Shit</h1>
+</div>
+<div>
+    <form class="form-inline" action="Home/Add">
+        <div class="form-group">
+            <input autofocus class="form-control" name="dopeShit" id="new-shit" />
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">Add</button>
+        </div>
+    </form>
+
+    <ul>
+        @foreach (var dopeShit in Model)
+        {<li>@dopeShit.Name</li>
+        }
+    </ul>
+</div>
