@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1.display-3 Quotes
+
+  each val in quotes
+    .card.mb-3
+      .card-body
+        blockquote.blockquote.text-center
+          p.mb-0= val.quote
+          footer.blockquote-footer= val.author
+
+
+  form.form.mt-5(action="/manage/newquote",method="post")
+    h2.display-5 New Quote
+    .form-group
+      input.form-control(type="text",name="quote",placeholder="What'd they say?")
+    .form-group
+      input.form-control(type="text",name="author",placeholder="Who said it?")
+    .form-group
+      button.btn.btn-primary(type="submit") Add

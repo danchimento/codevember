@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  .container.align-middle
+    blockquote.blockquote.text-center
+      h1.display-1= quote.quote
+      footer.blockquote-footer= quote.author
+
+    div(style="margin-top:150px").text-center
+      button.btn.btn-outline-dark(onclick="location.reload()") Be inspired even more
