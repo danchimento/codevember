@@ -1,0 +1,15 @@
+{
+  "name": "danchimento_bacon",
+  "version": "1.0.0",
+  "description": "Map that shows nearby bacon sales",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ws --spa index.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "local-web-server": "^3.0.7"
+  }
+}

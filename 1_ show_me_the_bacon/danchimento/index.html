@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+    var map;
+    var pos;
+
+    function initMap() {
+        pos = {lat: 41, lng: -98}
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: pos,
+          zoom: 4.3
+        });
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                map.setCenter(initialLocation);
+                map.setZoom(15);
+               
+                findPlaces()
+             //   setTimeout(() => findPlaces('Publix'), 2000);
+            });
+        }
+    }
+
+    function findPlaces() {
+        var request = {
+            location: pos,
+            radius: 50000,
+            query: 'bacon'
+        };
+
+        var service = new google.maps.places.PlacesService(map);
+
+        service.textSearch(request, (results, status) => {
+            if (status == google.maps.places.PlacesServiceStatus.OK) {
+                for (var i = 0; i < results.length; i++) {
+                    createMarker(results[i]);
+                }
+            }
+        });
+    }
+
+    function createMarker(place) {
+        var marker = new google.maps.Marker({
+            map: map,
+            position: place.geometry.location
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+            infowindow.setContent(place.name);
+            infowindow.open(map, this);
+        });
+    }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDevLpygiAsa0bNhc1ArkzYMi8wJStgkz0&callback=initMap&libraries=places"
+    async defer></script>
+  </body>
+</html>
