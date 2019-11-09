@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>Calculator bruh</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Calculator</h1>
+
+            <form class="form-inline">
+                <div class="form-group">
+                    <input class="form-control" name="num1" autofocus /> +
+                    <input class="form-control" name="num2" /> = 
+                    <span id="answer">
+
+                    </span>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" type="submit">Go</button>
+                </div>
+            </form>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+        <script>
+            var $num1 = $("[name=num1]");
+            var $num2 = $("[name=num2]");
+            var $form = $("form");
+            var $answer = $("#answer");
+
+            $form.on("submit", (e) => {
+                e.preventDefault();
+
+                var num1 = $num1.val();
+                var num2 = $num2.val();
+
+                $.get(`/add?num1=${num1}&num2=${num2}`, result => {
+                    $answer.html(result);
+                });
+
+                return false;
+            })
+
+
+
+        </script>
+    </body>
+</html>
+
+
